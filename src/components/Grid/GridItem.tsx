@@ -91,15 +91,15 @@ const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
     },
     ref
   ) => {
-    console.log("item in GridItem", item);
+    // console.log("item in GridItem", item);
 
     return (
       <div
         ref={ref}
         key={key}
         style={style}
-        data-grid={item}
-        className={`${className} react-grid-item bg-white shadow-md rounded-md group transition-all duration-700`}
+        data-grid={{ ...item }}
+        className={`${className} react-grid-item shadow-md border-2 border-black rounded-3xl group transition-all duration-700 active:cursor-grabbing active:shadow-lg`}
         onMouseDown={onMouseDown}
         onMouseUp={onMouseUp}
         onTouchEnd={onTouchEnd}
@@ -110,29 +110,29 @@ const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
               return prev.filter((i) => i.i !== item.i);
             });
           }}
-          className="rounded-full size-8 grid place-items-center absolute -top-4 shadow-md -left-4 m-2 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out z-10"
+          className="drag-cancel rounded-full size-8 grid place-items-center absolute -top-4 shadow-md -left-4 m-2 bg-white opacity-0 group-hover:opacity-100 transition-all duration-300 ease-out z-10"
         >
           <DustBin className="size-4 text-black/70" />
         </button>
         {children}
-        <div className="flex justify-center absolute -bottom-4 left-1/2 transform -translate-x-1/2 rounded-xl bg-white overflow-hidden border opacity-0 group-hover:opacity-100 duration-500 transition-opacity">
+        <div className="drag-cancel flex justify-start absolute -bottom-4 left-1/2 transform -translate-x-1/2 rounded-xl bg-white overflow-hidden border opacity-0 group-hover:opacity-100 duration-200 ease-in transition-opacity z-40">
           <button
             className="px-2 py-1 hover:bg-gray-300 font-bold"
             onClick={() => {
-              setLayout((prev: Layout[]) => {
+              setLayout((prev) => {
                 const index = prev.findIndex((i) => i.i === item.i);
                 const newLayout = [...prev];
                 newLayout[index] = {
                   ...newLayout[index],
-                  w: (newLayout[index].w = 2),
-                  h: (newLayout[index].h = 2),
+                  w: (newLayout[index].w = 1),
+                  h: (newLayout[index].h = 1),
                 };
                 return newLayout;
               });
             }}
           >
             <svg
-              className="size-2"
+              className="size-3"
               width="29"
               height="29"
               viewBox="0 0 29 29"
@@ -145,60 +145,9 @@ const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
                 height="26"
                 rx="4.5"
                 stroke="black"
-                strokeWidth="3"
+                strokeWidth="7"
               />
             </svg>
-          </button>
-          <button
-            className="px-2 py-1 hover:bg-gray-300 font-bold"
-            onClick={() => {
-              setLayout((prev) => {
-                const index = prev.findIndex((i) => i.i === item.i);
-                const newLayout = [...prev];
-                newLayout[index] = {
-                  ...newLayout[index],
-                  w: (newLayout[index].w = 1),
-                  h: (newLayout[index].h = 1),
-                };
-                return newLayout;
-              });
-            }}
-          >
-            1
-          </button>
-          <button
-            className="px-2 py-1 hover:bg-gray-300 font-bold"
-            onClick={() => {
-              setLayout((prev) => {
-                const index = prev.findIndex((i) => i.i === item.i);
-                const newLayout = [...prev];
-                newLayout[index] = {
-                  ...newLayout[index],
-                  w: (newLayout[index].w = 2),
-                  h: (newLayout[index].h = 1),
-                };
-                return newLayout;
-              });
-            }}
-          >
-            2
-          </button>
-          <button
-            className="px-2 py-1 hover:bg-gray-300 font-bold"
-            onClick={() => {
-              setLayout((prev) => {
-                const index = prev.findIndex((i) => i.i === item.i);
-                const newLayout = [...prev];
-                newLayout[index] = {
-                  ...newLayout[index],
-                  w: (newLayout[index].w = 1),
-                  h: (newLayout[index].h = 2),
-                };
-                return newLayout;
-              });
-            }}
-          >
-            3
           </button>
           <button
             className="px-2 py-1 hover:bg-gray-300 font-bold"
@@ -215,7 +164,156 @@ const GridItem = forwardRef<HTMLDivElement, GridItemProps>(
               });
             }}
           >
-            5
+            <svg
+              className="size-5"
+              width="56"
+              height="20"
+              viewBox="0 0 56 20"
+              fill="none"
+            >
+              <rect
+                x="1.5"
+                y="1.5"
+                width="53"
+                height="17"
+                rx="4.5"
+                stroke="black"
+                strokeWidth="5"
+              />
+            </svg>
+          </button>
+          <button
+            className="px-2 py-1 hover:bg-gray-300 font-bold"
+            onClick={() => {
+              setLayout((prev) => {
+                const index = prev.findIndex((i) => i.i === item.i);
+                const newLayout = [...prev];
+                newLayout[index] = {
+                  ...newLayout[index],
+                  w: (newLayout[index].w = 2),
+                  h: (newLayout[index].h = 1),
+                };
+                return newLayout;
+              });
+            }}
+          >
+            {/* <svg
+              className="size-5"
+              width="56"
+              height="20"
+              viewBox="0 0 56 20"
+              fill="none"
+            >
+              <rect
+                x="1.5"
+                y="1.5"
+                width="53"
+                height="17"
+                rx="4.5"
+                stroke="black"
+                strokeWidth="5"
+              />
+            </svg> */}
+            <svg
+              className="size-5"
+              width="66"
+              height="33"
+              viewBox="0 0 66 33"
+              fill="none"
+            >
+              <rect
+                x="1.5"
+                y="1.5"
+                width="63"
+                height="30"
+                rx="4.5"
+                stroke="black"
+                strokeWidth="5"
+              />
+            </svg>
+          </button>
+          <button
+            className="px-2 py-1 hover:bg-gray-300 font-bold"
+            onClick={() => {
+              setLayout((prev) => {
+                const index = prev.findIndex((i) => i.i === item.i);
+                const newLayout = [...prev];
+                newLayout[index] = {
+                  ...newLayout[index],
+                  w: (newLayout[index].w = 1),
+                  h: (newLayout[index].h = 2),
+                };
+                return newLayout;
+              });
+            }}
+          >
+            {/* <svg
+              className="size-5"
+              width="66"
+              height="33"
+              viewBox="0 0 66 33"
+              fill="none"
+            >
+              <rect
+                x="1.5"
+                y="1.5"
+                width="63"
+                height="30"
+                rx="4.5"
+                stroke="black"
+                strokeWidth="5"
+              />
+            </svg> */}
+            <svg
+              className="size-5"
+              width="27"
+              height="56"
+              viewBox="0 0 27 56"
+              fill="none"
+            >
+              <rect
+                x="1.5"
+                y="1.5"
+                width="24"
+                height="53"
+                rx="4.5"
+                stroke="black"
+                strokeWidth="5"
+              />
+            </svg>
+          </button>
+          <button
+            className="px-2 py-1 hover:bg-gray-300 font-bold"
+            onClick={() => {
+              setLayout((prev: Layout[]) => {
+                const index = prev.findIndex((i) => i.i === item.i);
+                const newLayout = [...prev];
+                newLayout[index] = {
+                  ...newLayout[index],
+                  w: (newLayout[index].w = 2),
+                  h: (newLayout[index].h = 2),
+                };
+                return newLayout;
+              });
+            }}
+          >
+            <svg
+              className="size-5"
+              width="55"
+              height="55"
+              viewBox="0 0 55 55"
+              fill="none"
+            >
+              <rect
+                x="1.5"
+                y="1.5"
+                width="52"
+                height="52"
+                rx="4.5"
+                stroke="black"
+                strokeWidth="5"
+              />
+            </svg>
           </button>
         </div>
       </div>

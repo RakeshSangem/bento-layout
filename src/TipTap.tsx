@@ -29,13 +29,18 @@ export default function TipTap({ setIsDraggable }: Props): ReactNode {
     },
   });
 
-  // editor?.on("focus", () => {
-  //   setIsDraggable && setIsDraggable(false);
-  // });
+  /**
+   * 
+  editor?.on("focus", () => {
+    setIsDraggable && setIsDraggable(false);
+  });
+  
 
-  // editor?.on("blur", () => {
-  //   setIsDraggable && setIsDraggable(true);
-  // });
+  editor?.on("blur", () => {
+    setIsDraggable && setIsDraggable(true);
+  });
+  
+  */
 
   return (
     <div className="p-2 h-full w-full rounded-md">

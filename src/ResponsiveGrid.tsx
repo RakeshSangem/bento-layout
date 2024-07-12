@@ -1,17 +1,11 @@
-import React, { useRef, useState } from "react";
-import {
-  Responsive,
-  WidthProvider,
-  ResponsiveGridLayoutProps,
-} from "react-grid-layout";
+import { useRef, useState } from "react";
+import GridLayout from "react-grid-layout";
 import "react-grid-layout/css/styles.css";
 import "react-resizable/css/styles.css";
 import TipTap from "./TipTap";
 import GridItemToolbar from "./GridItemToolbar";
 import { lgLayout, mdLayout, smLayout } from "./config";
 import GridItem from "./components/Grid/GridItem";
-
-const GridLayout = WidthProvider(Responsive);
 
 const ImageComponent = ({ src }: { src: string }) => (
   <div className="object-cover overflow-hidden h-full">

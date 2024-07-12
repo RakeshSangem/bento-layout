@@ -1,5 +1,4 @@
 const defaultsLayoutOpts = {
-  isDraggable: true,
   isResizable: false,
   static: false,
 };
@@ -12,7 +11,7 @@ export const lgLayout = [
     w: 2,
     h: 2,
     minW: 1,
-    minH: 1,
+    minH: 0.5,
     type: "SocialCardComponent",
     ...defaultsLayoutOpts,
   },

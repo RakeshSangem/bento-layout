@@ -1,0 +1,39 @@
+import React from "react";
+
+interface HeaderProps {
+  platform: string;
+  name: string;
+  profileImage: string;
+  followers: { count: string }[];
+}
+
+const Header: React.FC<HeaderProps> = ({
+  platform,
+  name,
+  profileImage,
+  followers,
+}) => {
+  return (
+    <div>
+      <div className="flex items-center">
+        <img
+          src={profileImage}
+          alt="Profile"
+          className="size-5 rounded-full border border-white mr-4"
+        />
+        <div>
+          <div className="text-lg font-semibold text-white">{platform}</div>
+          <div className="text-white">{name}</div>
+        </div>
+      </div>
+      <div className="mt-4 flex justify-between">
+        <button className="flex items-center gap-x-2 rounded-lg bg-white px-4 py-2 text-red-600 font-bold hover:bg-gray-200">
+          Subscribe
+          <span>{followers[0].count}</span>
+        </button>
+      </div>
+    </div>
+  );
+};
+
+export default Header;

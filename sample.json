@@ -1,0 +1,52 @@
+{
+  "device": "Desktop",
+  "cards": [
+    {
+      "id": "aksjdfhks",
+      "type": "Instagram",
+      "typeId": "23112",
+      "link": "https://www.instagram.com/johndoe/",
+      "data": {
+        "username": "johndoe",
+        "followers": 1000,
+        "following": 100,
+        "posts": 100,
+        "likes": 1000,
+        "comments": 100
+      },
+      "size": {
+        "x": 1,
+        "y": 1,
+        "width": 1,
+        "height": 1
+        // "minH": 2,  // based on type of card (Instagram, Twitter, etc) the min and max height and width can be set
+        // "mihW": 2,
+        // "maxH": 4,
+        // "maxW": 4
+      }
+    },
+    {
+      "id": "aksjdfhks",
+      "type": "Image",
+      "typeId": "3245435",
+      "link": "https://www.instagram.com/johndoe/",
+      "data": {
+        "src": "https://www.instagram.com/johndoe/",
+        "caption": {
+          "heading": "asfdasdfasf",
+          "subheading": "asfdasdfasf"
+        }
+      },
+      "size": {
+        "x": 1,
+        "y": 1,
+        "width": 1,
+        "height": 1
+        // "minH": 2,  // based on type of card (Instagram, Twitter, etc) the min and max height and width can be set
+        // "mihW": 2,
+        // "maxH": 4,
+        // "maxW": 4
+      }
+    }
+  ]
+}
